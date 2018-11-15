@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class Question
+    interface IQuestion
     {
+        void Display();
     }
 }

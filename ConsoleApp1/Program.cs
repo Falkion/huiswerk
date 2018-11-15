@@ -7,8 +7,7 @@ namespace ConsoleApp1
         
         static void Main(string[] args)
         {
-            Kassa kassa = new Kassa();
-            kassa.OptieSelect();
+            
         }
         
 
