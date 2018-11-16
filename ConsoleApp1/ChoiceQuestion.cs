@@ -5,25 +5,31 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class ChoiceQuestion : IQuestion
+    class ChoiceQuestion : Question
     {
         private List<String> choices;
         private string text;
         
-        public ChoiceQuestion(string questionText)
+        public ChoiceQuestion()
         {
-            text = questionText;
             choices = new List<string>();
         }
 
-        public void addChoice(string choice, bool answer)
+        public void AddChoice(string choice, bool answer)
         {
             choices.Add(choice);
+            if (answer)
+            {
+                string choiceString = "" + choices.Count();
+                SetAnswer(choiceString);
+            }
         }
 
-        public void Display()
+        
+
+        public override void Display()
         {
-            Console.WriteLine(text);
+            base.Display();
             for (int i = 0; i < choices.Count(); i++)
             {
                 int choiceNumber = i + 1;
