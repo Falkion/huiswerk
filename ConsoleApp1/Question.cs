@@ -10,6 +10,7 @@ namespace ConsoleApp1
         private string text, answer, category;
         private int difficulty;
         private List<string> categories;
+        private List<Question> questions;
         public Question()
         {
             text = "";
@@ -38,23 +39,28 @@ namespace ConsoleApp1
             answer = questionAnswer;
         }
 
+        public void AddQuestion(Question q)
+        {
+            questions.Add(q);
+        }
+
         public bool CheckAnswer(string response)
         {
             return response.Contains(answer);
         }
 
-        public string Sorter()
+        public void CategorySorter()
         {
-            string fullString = "";
             var query = from word in categories
                                         orderby word.Substring(0, 1) ascending
                                         select word;
             foreach (string value in query)
             {
-                fullString += value;
+                Console.WriteLine(value);
             }
-            return fullString;
+            string answer = Console.ReadLine();
         }
+
 
         public virtual void Display()
         {
